@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rfid;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\StoreRfidRequest;
 use App\Http\Requests\UpdateRfidRequest;
+use App\Imports\RfidsImport;
 
 class RfidController extends Controller
 {
@@ -13,6 +16,12 @@ class RfidController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
     public function index()
     {
         //
@@ -82,5 +91,20 @@ class RfidController extends Controller
     public function destroy(Rfid $rfid)
     {
         //
+    }
+
+
+    // excel
+
+    public function excel_import()
+    {
+        return view('rfids.import_excel');
+    }
+    public function excel_store(Request $request)
+    {
+        $file = $request->file('file');
+        Excel::import(new RfidsImport, $file);
+
+        return back()->withStatus('Excel file import berhasil!');
     }
 }

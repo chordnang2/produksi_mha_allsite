@@ -15,23 +15,24 @@ return new class extends Migration
     {
         Schema::create('rfids', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('ticket_number');
             $table->string('brand');
             $table->string('silo');
-            $table->string('date_time');
-            $table->string('tractor');
+            $table->dateTime('date_time');
+            $table->integer('tractor');
             $table->string('driver');
-            $table->string('vessel1');
-            $table->string('vessel2');
-            $table->string('capa1');
-            $table->string('capa2');
-            $table->string('company');
-            $table->string('silo_2');
-            $table->string('tgl_rfid');
-            $table->string('jam');
-            $table->string('shift');
-            $table->string('ton');
-            $table->string('group');
-            $table->string('tgl_tmst');
+            // $table->integer('vessel1');
+            // $table->integer('vessel2');
+            // $table->integer('capa1');
+            // $table->integer('capa2');
+            // $table->string('company');
+            // $table->string('silo_2');
+            // $table->date('tgl_rfid');
+            // $table->integer('jam');
+            // $table->string('shift');
+            // $table->integer('ton');
+            // $table->string('group');
+            // $table->date('tgl_tmst');
             $table->timestamps();
         });
     }
