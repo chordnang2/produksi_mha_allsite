@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rfids', function (Blueprint $table) {
+        Schema::create('kdc_daily_rfids', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('ticket_number');
             $table->string('brand');
@@ -21,18 +21,18 @@ return new class extends Migration
             $table->dateTime('date_time');
             $table->integer('tractor');
             $table->string('driver');
-            // $table->integer('vessel1');
-            // $table->integer('vessel2');
-            // $table->integer('capa1');
-            // $table->integer('capa2');
-            // $table->string('company');
-            // $table->string('silo_2');
-            // $table->date('tgl_rfid');
-            // $table->integer('jam');
-            // $table->string('shift');
-            // $table->integer('ton');
-            // $table->string('group');
-            // $table->date('tgl_tmst');
+            $table->string('vessel1');
+            $table->string('vessel2');
+            $table->integer('capa1');
+            $table->integer('capa2');
+            $table->string('company');
+            $table->string('silo_2');
+            $table->date('tgl_rfid');
+            $table->integer('jam');
+            $table->string('shift');
+            $table->integer('ton');
+            $table->string('group');
+            $table->date('tgl_tmst');
             $table->timestamps();
         });
     }
@@ -44,6 +44,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rfids');
+        Schema::dropIfExists('kdc_daily_rfids');
     }
 };

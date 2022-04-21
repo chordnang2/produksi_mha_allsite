@@ -256,12 +256,12 @@ return [
         ['header' => 'RFID'],
         [
             'text' => 'Data Pool',
-            'url'  => 'rfid/data',
+            'url'  => 'kdcdailyrfid',
             'icon' => 'fas fa-fw fa-database',
         ],
         [
             'text' => 'Import Excel',
-            'url'  => 'rfid/import',
+            'url'  => 'kdcdailyrfid/import',
             'icon' => 'fas fa-fw fa-user',
         ]
         // [

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KdcDailyRfidController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RfidController;
@@ -27,5 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/users/import', [App\Http\Controllers\UsersImportController::class, 'show'])->name('show');
 Route::post('/users/import', [App\Http\Controllers\UsersImportController::class, 'store'])->name('store');
 
-Route::get('/rfid/import', [RfidController::class, 'excel_import'])->name('show');
-Route::post('/rfid/import', [RfidController::class, 'excel_store'])->name('store');
+Route::get('/kdcdailyrfid/import', [KdcDailyRfidController::class, 'excel_import'])->name('show');
+Route::post('/kdcdailyrfid/import', [KdcDailyRfidController::class, 'excel_store'])->name('store');
+
+Route::get('/kdcdailyrfid', [KdcDailyRfidController::class, 'excel_data'])->name('data');

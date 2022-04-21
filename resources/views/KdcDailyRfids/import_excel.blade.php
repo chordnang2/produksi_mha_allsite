@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'ImportExcel')
+@section('title', 'Import Excel')
 
 @section('content_header')
 
@@ -8,6 +8,7 @@
 
 @section('content')
 <br>
+
 <div class="card">
     <div class="card-header">
         Import Excel
@@ -19,7 +20,7 @@
         </div>
         @endif
 
-        <form action="/rfid/import" method="post" enctype="multipart/form-data">
+        <form action="/kdcdailyrfid/import" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">

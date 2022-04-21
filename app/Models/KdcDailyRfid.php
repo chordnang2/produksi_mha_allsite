@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rfid extends Model
+class KdcDailyRfid extends Model
 {
     use HasFactory;
-
 
     protected $fillable = [
         'ticket_number',
@@ -17,17 +16,17 @@ class Rfid extends Model
         'date_time',
         'tractor',
         'driver',
-        // 'vessel1',
-        // 'vessel2',
-        // 'capa1',
-        // 'capa2',
-        // 'company',
-        // 'silo_2',
-        // 'tgl_rfid',
-        // 'jam',
-        // 'shift',
-        // 'ton',
-        // 'group',
-        // 'tgl_tmst',
+        'vessel1',
+        'vessel2',
+        'capa1',
+        'capa2',
+        'company',
+        'silo_2',
+        'tgl_rfid',
+        'jam',
+        'shift',
+        'ton',
+        'group',
+        'tgl_tmst',
     ];
 }

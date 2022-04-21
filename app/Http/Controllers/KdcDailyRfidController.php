@@ -2,25 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rfid;
+use App\Models\KdcDailyRfid;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Requests\StoreRfidRequest;
-use App\Http\Requests\UpdateRfidRequest;
-use App\Imports\RfidsImport;
 
-class RfidController extends Controller
+use App\Imports\KdcDailyRfidsImport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\StoreKdcDailyRfidRequest;
+use App\Http\Requests\UpdateKdcDailyRfidRequest;
+
+class KdcDailyRfidController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -40,10 +40,10 @@ class RfidController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreRfidRequest  $request
+     * @param  \App\Http\Requests\StoreKdcDailyRfidRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRfidRequest $request)
+    public function store(StoreKdcDailyRfidRequest $request)
     {
         //
     }
@@ -51,10 +51,10 @@ class RfidController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rfid  $rfid
+     * @param  \App\Models\KdcDailyRfid  $kdcDailyRfid
      * @return \Illuminate\Http\Response
      */
-    public function show(Rfid $rfid)
+    public function show(KdcDailyRfid $kdcDailyRfid)
     {
         //
     }
@@ -62,10 +62,10 @@ class RfidController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rfid  $rfid
+     * @param  \App\Models\KdcDailyRfid  $kdcDailyRfid
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rfid $rfid)
+    public function edit(KdcDailyRfid $kdcDailyRfid)
     {
         //
     }
@@ -73,11 +73,11 @@ class RfidController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateRfidRequest  $request
-     * @param  \App\Models\Rfid  $rfid
+     * @param  \App\Http\Requests\UpdateKdcDailyRfidRequest  $request
+     * @param  \App\Models\KdcDailyRfid  $kdcDailyRfid
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRfidRequest $request, Rfid $rfid)
+    public function update(UpdateKdcDailyRfidRequest $request, KdcDailyRfid $kdcDailyRfid)
     {
         //
     }
@@ -85,26 +85,27 @@ class RfidController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rfid  $rfid
+     * @param  \App\Models\KdcDailyRfid  $kdcDailyRfid
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rfid $rfid)
+    public function destroy(KdcDailyRfid $kdcDailyRfid)
     {
         //
     }
 
-
-    // excel
-
     public function excel_import()
     {
-        return view('rfids.import_excel');
+        return view('KdcDailyRfids.import_excel');
     }
     public function excel_store(Request $request)
     {
         $file = $request->file('file');
-        Excel::import(new RfidsImport, $file);
+        Excel::import(new KdcDailyRfidsImport, $file);
 
         return back()->withStatus('Excel file import berhasil!');
+    }
+    public function excel_data()
+    {
+        return view('KdcDailyRfids.data_excel');
     }
 }
