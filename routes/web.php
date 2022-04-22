@@ -21,9 +21,9 @@ use App\Http\Controllers\UserController;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [KdcDailyRfidController::class, 'dashboard'])->name('dashboard');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [KdcDailyRfidController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/users/import', [App\Http\Controllers\UsersImportController::class, 'show'])->name('show');
 Route::post('/users/import', [App\Http\Controllers\UsersImportController::class, 'store'])->name('store');
