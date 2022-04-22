@@ -30,5 +30,6 @@ Route::post('/users/import', [App\Http\Controllers\UsersImportController::class,
 
 Route::get('/kdcdailyrfid/import', [KdcDailyRfidController::class, 'excel_import'])->name('show');
 Route::post('/kdcdailyrfid/import', [KdcDailyRfidController::class, 'excel_store'])->name('store');
-
 Route::get('/kdcdailyrfid', [KdcDailyRfidController::class, 'excel_data'])->name('data');
+
+Route::get('/kdcdailyrfid/dashboard', [KdcDailyRfidController::class, 'dashboard'])->name('dashboard');

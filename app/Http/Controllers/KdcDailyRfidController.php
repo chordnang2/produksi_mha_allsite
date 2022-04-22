@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\KdcDailyRfid;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
 use App\Imports\KdcDailyRfidsImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\StoreKdcDailyRfidRequest;
@@ -24,7 +25,6 @@ class KdcDailyRfidController extends Controller
 
     public function index()
     {
-        //
     }
 
     /**
@@ -106,6 +106,60 @@ class KdcDailyRfidController extends Controller
     }
     public function excel_data()
     {
-        return view('KdcDailyRfids.data_excel');
+        clock($data_kdcdailyrfids = KdcDailyRfid::select(
+            'id',
+            'ticket_number',
+            'brand',
+            'silo',
+            'date_time',
+            'tractor',
+            'driver',
+            'vessel1',
+            'vessel2',
+            'capa1',
+            'capa2',
+            'company',
+            'silo_2',
+            'tgl_rfid',
+            'jam',
+            'shift',
+            'ton',
+            'group',
+            'tgl_tmst',
+        )
+            ->where('tgl_rfid', '=', '2022-03-01')
+            ->get()->toArray());
+
+
+        json_encode($data_kdcdailyrfids);
+        return view('KdcDailyRfids.data_excel', ['json_data_kdcdailyrfids' => $data_kdcdailyrfids]);
+    }
+
+    public function dashboard()
+    {
+        $tanggal = '2022-03-01';
+        $KdcDailyRfids['tonase_shift1'] = KdcDailyRfid::where('tgl_rfid', '=', $tanggal)
+            ->where('shift', 'I')
+            ->sum('ton');
+        $KdcDailyRfids['tonase_shift2'] = KdcDailyRfid::where('tgl_rfid', '=', $tanggal)
+            ->where('shift', 'II')
+            ->sum('ton');
+        $KdcDailyRfids['tonase_shift3'] = KdcDailyRfid::where('tgl_rfid', '=', $tanggal)
+            ->where('shift', 'III')
+            ->sum('ton');
+        // DB::enableQueryLog();
+
+        $KdcDailyRfids['ritasi_shift1'] = KdcDailyRfid::where('tgl_rfid', '=', $tanggal)
+            ->where('shift', '=', 'I')
+            ->count('id');
+        $KdcDailyRfids['ritasi_shift2'] = KdcDailyRfid::where('tgl_rfid', '=', $tanggal)
+            ->where('shift', '=', 'II')
+            ->count('id');
+        $KdcDailyRfids['ritasi_shift3'] = KdcDailyRfid::where('tgl_rfid', '=', $tanggal)
+            ->where('shift', '=', 'III')
+            ->count('id');
+
+        // dd(DB::getQueryLog());
+        return view('KdcDailyRfids.dashboard', compact('KdcDailyRfids'));
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class KdcDailyRfid extends Model
 {
     use HasFactory;
+    // protected $connection = 'sqlite';
 
     protected $fillable = [
         'ticket_number',

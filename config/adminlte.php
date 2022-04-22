@@ -248,7 +248,7 @@ return [
         ],
         [
             'text'        => 'Dashboard',
-            'url'         => 'admin/pages',
+            'url'         => '/kdcdailyrfid/dashboard',
             'icon'        => 'fas fa-fw fa-tachometer-alt',
             // 'label'       => 4,
             'label_color' => 'success',

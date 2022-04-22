@@ -8,7 +8,7 @@
 
 @section('content')
 <br>
-<x-adminlte-card title="Dark Card" theme="dark" icon="fas fa-lg fa-moon">
+<x-adminlte-card title="Data Excel KCD Daily RFID" theme="dark" icon="fas fa-lg fa-table">
     {{-- Setup data for datatables --}}
     @php
     $heads = [
@@ -31,7 +31,7 @@
     'Ton',
     'Grup',
     'Tanggal TMST',
-    ['label' => 'Actions', 'no-export' => true, 'width' => 5],
+    // ['label' => 'Actions', 'no-export' => true, 'width' => 5],
     ];
 
     $btnEdit = '<button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
@@ -45,11 +45,12 @@
     </button>';
 
     $config = [
-    'data' => [
-    [22, 'John Bender', '+02 (123) 123456789', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-    [19, 'Sophia Clemens', '+99 (987) 987654321', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-    [3, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-    ],
+    // 'data' => [
+    // [22, 'John Bender', '+02 (123) 123456789', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
+    // [19, 'Sophia Clemens', '+99 (987) 987654321', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
+    // [3, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
+    // ],
+    'data'=> $json_data_kdcdailyrfids,
     'order' => [[1, 'asc']],
     'columns' => [null, null, null, ['orderable' => false]],
     ];
