@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'MHA BatuKajang',
+    'title' => 'MHA',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>MHA </b>BatuKajang',
+    'logo' => '<b>MHA</b> All Site',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -248,23 +248,43 @@ return [
         ],
         [
             'text'        => 'Dashboard',
-            'url'         => '/kdcdailyrfid/dashboard',
+            'url'         => '/',
             'icon'        => 'fas fa-fw fa-tachometer-alt',
             // 'label'       => 4,
-            'label_color' => 'success',
+            // 'label_color' => 'success',
         ],
-        ['header' => 'RFID'],
+        ['header' => 'KDC'],
         [
-            'text' => 'Data Pool',
-            'url'  => 'kdcdailyrfid',
-            'icon' => 'fas fa-fw fa-database',
+            'text'    => 'Hauling',
+            'submenu' => [
+                [
+                    'text' => 'Data pool',
+                    'url'  => 'kdcdailyrfid',
+                    'icon'    => 'fas fa-fw fa-database',
+                ],
+                [
+                    'text' => 'Import excel',
+                    'url'  => 'kdcdailyrfid/import',
+                    'icon'    => 'fas fa-fw fa-file-excel',
+                ],
+            ],
         ],
         [
-            'text' => 'Import Excel',
-            'url'  => 'kdcdailyrfid/import',
-            'icon' => 'fas fa-fw fa-user',
-        ]
-        // [
+            'text'    => 'CoalGetting',
+            'submenu' => [
+                [
+                    'text' => 'Data pool',
+                    'url'  => 'kdccoalgetting',
+                    'icon'    => 'fas fa-fw fa-database',
+                ],
+                [
+                    'text' => 'Import excel',
+                    'url'  => 'kdccoalgetting/import',
+                    'icon'    => 'fas fa-fw fa-file-excel',
+                ],
+            ],
+        ],
+
         //     'text'    => 'multilevel',
         //     'icon'    => 'fas fa-fw fa-share',
         //     'submenu' => [

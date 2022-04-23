@@ -8,41 +8,38 @@
 
 @section('content')
     <br>
-    <x-adminlte-card title="Data Excel KCD Daily RFID" theme="dark" icon="fas fa-lg fa-table">
+    <x-adminlte-card title="Data Excel KCD Daily CoalGetting" theme="dark" icon="fas fa-lg fa-table">
         {{-- Setup data for datatables --}}
         @php
             $heads = [
                 'ID',
-                'Ticket Number',
-                'Brand',
-                'Silo',
-                'Date_time',
-                'Tractor',
-                'Driver',
-                'Vessel1',
-                'Vessel2',
-                'Capa1',
-                'Capa2',
-                'Company',
-                'Silo',
-                'Tanggal RFID',
-                'Jam',
-                'Shift',
-                'Ton',
-                'Grup',
-                'Tanggal TMST',
+                'ticket_number',
+                'company',
+                'room',
+                'date_time',
+                'dt',
+                'pit',
+                'area',
+                'seam',
+                'exa',
+                'capa',
+                'coal_brand',
+                'penalty',
+                'tanggal',
+                'shift',
+                'jam',
                 // ['label' => 'Actions', 'no-export' => true, 'width' => 5],
             ];
             
             $btnEdit = '<button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
-            <i class="fa fa-lg fa-fw fa-pen"></i>
-        </button>';
+                <i class="fa fa-lg fa-fw fa-pen"></i>
+            </button>';
             $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
-            <i class="fa fa-lg fa-fw fa-trash"></i>
-        </button>';
+                <i class="fa fa-lg fa-fw fa-trash"></i>
+            </button>';
             $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
-            <i class="fa fa-lg fa-fw fa-eye"></i>
-        </button>';
+                <i class="fa fa-lg fa-fw fa-eye"></i>
+            </button>';
             
             $config = [
                 // 'data' => [
@@ -50,7 +47,7 @@
                 // [19, 'Sophia Clemens', '+99 (987) 987654321', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
                 // [3, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
                 // ],
-                'data' => $json_data_kdcdailyrfids,
+                'data' => $json_data_kdcdailycoalgettings,
                 'order' => [[1, 'asc']],
                 'columns' => [null, null, null, ['orderable' => false]],
             ];

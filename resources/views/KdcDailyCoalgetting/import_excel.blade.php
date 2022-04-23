@@ -11,7 +11,7 @@
 
 <div class="card">
     <div class="card-header">
-        Import Excel Hauling KDC
+        Import Excel Coal Getting KDC
     </div>
     <div class="card-body">
         @if (session('status'))
@@ -20,7 +20,7 @@
         </div>
         @endif
 
-        <form action="/kdcdailyrfid/import" method="post" enctype="multipart/form-data">
+        <form action="/kdccoalgetting/import" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">

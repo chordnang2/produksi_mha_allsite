@@ -6,6 +6,7 @@ use App\Models\KdcDailyRfid;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
+use App\Models\KdcDailyCoalgetting;
 use App\Imports\KdcDailyRfidsImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\StoreKdcDailyRfidRequest;
@@ -159,23 +160,30 @@ class KdcDailyRfidController extends Controller
             ->where('shift', '=', 'III')
             ->count('id');
 
-
-        // chart
-
-        $chartjs = app()->chartjs
-            ->name('barChartTest')
-            ->type('bar')
-            ->size(['width' => 400, 'height' => 200])
-            ->labels(['Label x', 'Label y'])
-            ->datasets([
-                [
-                    "label" => "My First dataset",
-                    'backgroundColor' => ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
-                    'data' => [69, 59]
-                ],
-            ])
-            ->options([]);
         // dd(DB::getQueryLog());
-        return view('KdcDailyRfids.dashboard', compact('KdcDailyRfids', 'chartjs'));
+
+        $KdcDailyCoalgetting['tonase_day'] = KdcDailyCoalgetting::where('tanggal', '=', $tanggal)
+            ->where('shift', '=', 'Day')
+            ->sum('capa');
+        $KdcDailyCoalgetting['tonase_night'] = KdcDailyCoalgetting::where('tanggal', '=', $tanggal)
+            ->where('shift', '=', 'Night')
+            ->sum('capa');
+
+        $KdcDailyCoalgetting['ritasi_day'] = KdcDailyCoalgetting::where('tanggal', '=', $tanggal)
+            ->where('shift', '=', 'Day')
+            ->count('id');
+        $KdcDailyCoalgetting['ritasi_night'] = KdcDailyCoalgetting::where('tanggal', '=', $tanggal)
+            ->where('shift', '=', 'Night')
+            ->count('id');
+
+        $KdcDailyCoalgetting['hm_day'] = KdcDailyCoalgetting::where('tanggal', '=', $tanggal)
+            ->where('shift', '=', 'Day')
+            ->sum('jam');
+        $KdcDailyCoalgetting['hm_night'] = KdcDailyCoalgetting::where('tanggal', '=', $tanggal)
+            ->where('shift', '=', 'Night')
+            ->sum('jam');
+
+        // dd($KdcDailyCoalgetting);
+        return view('KdcDailyRfids.dashboard', compact('KdcDailyRfids', 'KdcDailyCoalgetting', 'tanggal'));
     }
 }
