@@ -83,7 +83,7 @@
             const myChart = new Chart(tonase_kdc, {
                 type: 'line',
                 data: {
-                    labels: ['Shift 1', 'Shift 2,', 'Shift 3'],
+                    labels: ['Shift 1', 'Shift 2', 'Shift 3'],
                     datasets: [{
                         label: 'Tonase',
                         data: [shift1_tonase, shift2_tonase, shift3_tonase],
@@ -112,7 +112,7 @@
             const myChart2 = new Chart(ritasi_kdc, {
                 type: 'line',
                 data: {
-                    labels: ['Shift 1', 'Shift 2,', 'Shift 3'],
+                    labels: ['Shift 1', 'Shift 2', 'Shift 3'],
                     datasets: [{
                         label: 'Ritasi',
                         data: [shift1_tonase, shift2_tonase, shift3_tonase],
@@ -167,7 +167,7 @@
             const myChart4 = new Chart(ritasi_coalgetting, {
                 type: 'line',
                 data: {
-                    labels: ['Shift 1', 'Shift 2,'],
+                    labels: ['Shift 1', 'Shift 2'],
                     datasets: [{
                         label: 'Ritasi',
                         data: [shift_day_ritasi_coalgeting, shift_night_ritasi_coalgeting],
@@ -195,7 +195,7 @@
             const myChart5 = new Chart(hm_coalgetting, {
                 type: 'line',
                 data: {
-                    labels: ['Shift 1', 'Shift 2,'],
+                    labels: ['Shift 1', 'Shift 2'],
                     datasets: [{
                         label: 'HM',
                         data: [shift_day_hm_coalgeting, shift_night_hm_coalgeting],
