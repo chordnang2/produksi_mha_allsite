@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="pt-2">
-        <x-adminlte-card title="KDC Hauling">
+        <x-adminlte-card title="Produksi 0301 Kideco BKJ">
             <x-slot name="toolsSlot">
                 <h3 class="card-title mr-2">{{ date('d/M/Y', strtotime($tanggal)) }}</h3>
             </x-slot>
@@ -29,7 +29,7 @@
         </x-adminlte-card>
     </div>
     <div class="pt-2">
-        <x-adminlte-card title="KDC Coal Getting">
+        <x-adminlte-card title="Produksi 0305 SIMS KDC">
             <x-slot name="toolsSlot">
                 <h3 class="card-title mr-2">{{ date('d/M/Y', strtotime($tanggal)) }}</h3>
             </x-slot>

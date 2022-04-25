@@ -255,7 +255,7 @@ return [
         ],
         ['header' => 'KDC'],
         [
-            'text'    => 'Hauling',
+            'text'    => '0301 Kideco BKJ',
             'submenu' => [
                 [
                     'text' => 'Data pool',
@@ -270,7 +270,7 @@ return [
             ],
         ],
         [
-            'text'    => 'CoalGetting',
+            'text'    => '0305 SIMS KDC',
             'submenu' => [
                 [
                     'text' => 'Data pool',
