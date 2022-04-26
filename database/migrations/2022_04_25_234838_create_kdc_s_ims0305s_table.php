@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kdc_daily_coalgettings', function (Blueprint $table) {
+        Schema::create('kdc_s_ims0305s', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('ticket_number');
             $table->string('company');
@@ -41,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kdc_daily_coalgettings');
+        Schema::dropIfExists('kdc_s_ims0305s');
     }
 };

@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KdcDailyRfid extends Model
+class KdcDaily0301 extends Model
 {
     use HasFactory;
-    // protected $connection = 'sqlite';
+
 
     protected $fillable = [
         'ticket_number',

@@ -259,12 +259,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'Data pool',
-                    'url'  => 'kdcdailyrfid',
+                    'url'  => 'kdcdaily0301',
                     'icon'    => 'fas fa-fw fa-database',
                 ],
                 [
                     'text' => 'Import excel',
-                    'url'  => 'kdcdailyrfid/import',
+                    'url'  => 'kdcdaily0301/import',
                     'icon'    => 'fas fa-fw fa-file-excel',
                 ],
             ],
@@ -274,12 +274,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'Data pool',
-                    'url'  => 'kdccoalgetting',
+                    'url'  => 'kdcsims0305',
                     'icon'    => 'fas fa-fw fa-database',
                 ],
                 [
                     'text' => 'Import excel',
-                    'url'  => 'kdccoalgetting/import',
+                    'url'  => 'kdcsims0305/import',
                     'icon'    => 'fas fa-fw fa-file-excel',
                 ],
             ],

@@ -2,12 +2,12 @@
 
 namespace App\Imports;
 
-use App\Models\KdcDailyCoalgetting;
+use App\Models\KdcSims0305;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 
-class KdcDailyCoalgettingImport implements ToModel, WithStartRow, WithCalculatedFormulas
+class KdcSims0305Import implements ToModel, WithStartRow, WithCalculatedFormulas
 {
     /**
      * @param array $row
@@ -16,7 +16,7 @@ class KdcDailyCoalgettingImport implements ToModel, WithStartRow, WithCalculated
      */
     public function model(array $row)
     {
-        return new KdcDailyCoalgetting([
+        return new KdcSims0305([
             'ticket_number' => $row[0],
             'company' => $row[1],
             'room' => $row[2],
@@ -34,6 +34,7 @@ class KdcDailyCoalgettingImport implements ToModel, WithStartRow, WithCalculated
             'jam' => $row[14],
         ]);
     }
+
     public function startRow(): int
     {
         return 2;

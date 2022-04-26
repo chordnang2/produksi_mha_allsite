@@ -2,29 +2,21 @@
 
 namespace App\Imports;
 
-use App\Models\KdcDailyRfid;
+use App\Models\KdcDaily0301;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
-use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 
-class KdcDailyRfidsImport implements ToModel, WithStartRow,WithCalculatedFormulas
+class KdcDaily0301Import implements ToModel,WithStartRow,WithCalculatedFormulas
 {
-
     /**
      * @param array $row
      *
      * @return \Illuminate\Database\Eloquent\Model|null
      */
-    // public function sheets(): array
-    // {
-    //     return [
-    //         'ENTRY RFID' => new KdcDailyRfidsImport(),
-    //     ];
-    // }
     public function model(array $row)
     {
-        return new KdcDailyRfid([
+        return new KdcDaily0301([
             'ticket_number' => $row[0],
             'brand' => $row[1],
             'silo' => $row[2],
@@ -47,6 +39,6 @@ class KdcDailyRfidsImport implements ToModel, WithStartRow,WithCalculatedFormula
     }
     public function startRow(): int
     {
-        return 5;
+        return 4;
     }
 }

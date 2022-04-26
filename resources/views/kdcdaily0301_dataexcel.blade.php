@@ -8,7 +8,7 @@
 
 @section('content')
     <br>
-    <x-adminlte-card title="Data Excel KCD Daily RFID" theme="dark" icon="fas fa-lg fa-table">
+    <x-adminlte-card title="Data Excel KDC Daily 0301" theme="dark" icon="fas fa-lg fa-table">
         {{-- Setup data for datatables --}}
         @php
             $heads = [
@@ -50,7 +50,7 @@
                 // [19, 'Sophia Clemens', '+99 (987) 987654321', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
                 // [3, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
                 // ],
-                'data' => $json_data_kdcdailyrfids,
+                'data' => $json_data_kdcdaily0301,
                 'order' => [[1, 'asc']],
                 'columns' => [null, null, null, ['orderable' => false]],
             ];

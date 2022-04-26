@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kdc_daily_rfids', function (Blueprint $table) {
+        Schema::create('kdc_daily0301s', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('ticket_number');
             $table->string('brand');
@@ -44,6 +44,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kdc_daily_rfids');
+        Schema::dropIfExists('kdc_daily0301s');
     }
 };

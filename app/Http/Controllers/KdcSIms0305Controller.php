@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KdcDailyCoalgetting;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\KdcDailyCoalgettingImport;
-use App\Http\Requests\StoreKdcDailyCoalgettingRequest;
-use App\Http\Requests\UpdateKdcDailyCoalgettingRequest;
+use App\Models\KdcSIms0305;
 use Illuminate\Http\Request;
+use App\Imports\KdcSims0305Import;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\StoreKdcSIms0305Request;
+use App\Http\Requests\UpdateKdcSIms0305Request;
 
-class KdcDailyCoalgettingController extends Controller
+class KdcSIms0305Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,10 +34,10 @@ class KdcDailyCoalgettingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreKdcDailyCoalgettingRequest  $request
+     * @param  \App\Http\Requests\StoreKdcSIms0305Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreKdcDailyCoalgettingRequest $request)
+    public function store(StoreKdcSIms0305Request $request)
     {
         //
     }
@@ -45,10 +45,10 @@ class KdcDailyCoalgettingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\KdcDailyCoalgetting  $kdcDailyCoalgetting
+     * @param  \App\Models\KdcSIms0305  $kdcSIms0305
      * @return \Illuminate\Http\Response
      */
-    public function show(KdcDailyCoalgetting $kdcDailyCoalgetting)
+    public function show(KdcSIms0305 $kdcSIms0305)
     {
         //
     }
@@ -56,10 +56,10 @@ class KdcDailyCoalgettingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\KdcDailyCoalgetting  $kdcDailyCoalgetting
+     * @param  \App\Models\KdcSIms0305  $kdcSIms0305
      * @return \Illuminate\Http\Response
      */
-    public function edit(KdcDailyCoalgetting $kdcDailyCoalgetting)
+    public function edit(KdcSIms0305 $kdcSIms0305)
     {
         //
     }
@@ -67,11 +67,11 @@ class KdcDailyCoalgettingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateKdcDailyCoalgettingRequest  $request
-     * @param  \App\Models\KdcDailyCoalgetting  $kdcDailyCoalgetting
+     * @param  \App\Http\Requests\UpdateKdcSIms0305Request  $request
+     * @param  \App\Models\KdcSIms0305  $kdcSIms0305
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateKdcDailyCoalgettingRequest $request, KdcDailyCoalgetting $kdcDailyCoalgetting)
+    public function update(UpdateKdcSIms0305Request $request, KdcSIms0305 $kdcSIms0305)
     {
         //
     }
@@ -79,29 +79,29 @@ class KdcDailyCoalgettingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\KdcDailyCoalgetting  $kdcDailyCoalgetting
+     * @param  \App\Models\KdcSIms0305  $kdcSIms0305
      * @return \Illuminate\Http\Response
      */
-    public function destroy(KdcDailyCoalgetting $kdcDailyCoalgetting)
+    public function destroy(KdcSIms0305 $kdcSIms0305)
     {
         //
     }
 
     public function excel_import()
     {
-        return view('KdcDailyCoalgetting.import_excel');
+        return view('kdcsims0305_importexcel');
     }
     public function excel_store(Request $request)
     {
         $file = $request->file('file');
-        Excel::import(new KdcDailyCoalgettingImport, $file);
+        Excel::import(new KdcSims0305Import, $file);
 
         return back()->withStatus('Excel file import berhasil!');
     }
 
     public function excel_data()
     {
-        clock($data_kdcdailycoalgettings = KdcDailyCoalgetting ::select(
+        clock($data_kdcsims0305 = KdcSIms0305::select(
             'id',
             'ticket_number',
             'company',
@@ -123,7 +123,7 @@ class KdcDailyCoalgettingController extends Controller
             ->get()->toArray());
 
 
-        json_encode($data_kdcdailycoalgettings);
-        return view('KdcDailyCoalgetting.data_excel', ['json_data_kdcdailycoalgettings' => $data_kdcdailycoalgettings]);
+        json_encode($data_kdcsims0305);
+        return view('kdcsims0305_dataexcel', ['json_data_kdcsims0305' => $data_kdcsims0305]);
     }
 }

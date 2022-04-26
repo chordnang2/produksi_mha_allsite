@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KdcDailyCoalgetting extends Model
+class KdcSIms0305 extends Model
 {
     use HasFactory;
 

@@ -11,7 +11,7 @@
 
 <div class="card">
     <div class="card-header">
-        Import Excel Coal Getting KDC
+        Import Excel KDC SIMS 0305
     </div>
     <div class="card-body">
         @if (session('status'))
@@ -20,7 +20,7 @@
         </div>
         @endif
 
-        <form action="/kdccoalgetting/import" method="post" enctype="multipart/form-data">
+        <form action="/kdcsims0305/import" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">

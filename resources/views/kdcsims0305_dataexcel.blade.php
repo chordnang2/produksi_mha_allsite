@@ -8,7 +8,7 @@
 
 @section('content')
     <br>
-    <x-adminlte-card title="Data Excel KCD Daily CoalGetting" theme="dark" icon="fas fa-lg fa-table">
+    <x-adminlte-card title="Data Excel KCD SIMS 0305" theme="dark" icon="fas fa-lg fa-table">
         {{-- Setup data for datatables --}}
         @php
             $heads = [
@@ -47,7 +47,7 @@
                 // [19, 'Sophia Clemens', '+99 (987) 987654321', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
                 // [3, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
                 // ],
-                'data' => $json_data_kdcdailycoalgettings,
+                'data' => $json_data_kdcsims0305,
                 'order' => [[1, 'asc']],
                 'columns' => [null, null, null, ['orderable' => false]],
             ];
